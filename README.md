@@ -172,3 +172,45 @@ doctl auth init
 > Enter the `token` when prompted.
 
 ## Step 6: Create a new Arch Linux droplet via `doctl`
+
+To create a new droplet via `doctl`, run the following command:
+
+```
+doctl compute droplet create \
+    <name of your new droplet> \
+    --size <size of CPU and RAM> \
+    --image <image ID> \
+    --region <region and datacenter> \
+    --ssh-keys <ssh key ID> \
+    --enable-backups
+```
+
+> Explanation of this command:
+
+- `doctl compute droplet create \`: Create a new droplet on using `doctl`
+- `    <name of your new droplet> \`: The name of your droplet. We are replacing it with `NewDroplet` here.
+- `    --size <size of CPU and RAM> \`: The size of the droplet. We are using `s-1vcpu-1gb`, which means 1 virtual CPU and 1 GB of RAM.
+- `    --image <image ID> \`: The image ID of the OS that will be installed on the droplet. We are using `165064181`, which is the ID of the Arch Linux image uploaded to DigitalOcean earlier.
+- `    --region <region and datacenter> \`: Region for the droplet, we are using `sfo3` which is the closest to Vancouver.
+- `    --ssh-keys <ssh key ID> \`: The ID of the SSH key for secure access.
+- `    --enable-backups`: Enable automatic backups for the droplet.
+
+Therefore the command we are going to run is:
+
+```
+doctl compute droplet create \
+    NewDroplet \
+    --size s-1vcpu-1gb \
+    --image 165064181 \
+    --region sfo3 \
+    --ssh-keys 43471790 \
+    --enable-backups
+```
+
+To validate if we have sucessfullt created a droplet or not, run the command below to display a list of all active droplets in your DigitalOcean account:
+
+```
+doctl compute droplet list
+```
+
+# Step 7:
