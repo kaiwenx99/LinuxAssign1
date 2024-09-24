@@ -95,4 +95,80 @@ After running the command above, we have successfully connected to the Arch Linu
 
 ## Step 5: Install and configure `doctl` under existing droplet environment using Pacman
 
-### Notes: Adding the step of creating a droplet using the created SSH key pair???? before step 3
+Firstly, make sure you are connected to the arch linux droplet via this command:
+
+```
+ssh -i .ssh/assign1 arch@147.182.207.200
+```
+
+To install `doctl`, we have to make sure the system is fully updated including the pacakage database. By running the command below, we have the latest `doctl` version available without compatibility issues:
+
+```
+sudo pacman -Syu
+```
+
+> Explanation of this command:
+
+- S: Sync the package databases.
+- y: Refresh the package databases.
+- u: Update all out-of-date packages installed on the system.
+
+Now we have `pacman` available for Arch Linux package management, we are going to use **Arch User Repository (AUR)** to install `doctl`.
+
+We will run this command below to include necessary tools to build packages from the AUR:
+
+```
+sudo pacman -S --needed base-devel git
+```
+
+> Explanation of this command:
+
+- `sudo`: Run the command with root privileges.
+- `pacman`: Install the specified packages.
+- `--needed`: Skip reinstallation of already installed packages.
+- `base-devel`: A group of essential development tools.
+- `git`: Version control tool for cloning and managing code.
+
+Then we are going to install an AUR helper like `yay` using git clone:
+
+```
+git clone https://aur.archlinux.org/yay.git
+```
+
+Then we navigate in to `yay` directory and install it:
+
+```
+cd yay
+makepkg -si
+```
+
+> Explanation of this command:
+
+- `makepkg`: Build a package from a PKGBUILD script.
+- `-s`: Install missing dependencies.
+- `-i`: Install the built package.
+
+(Optional) After installation, you can remove the `yay` directory:
+
+```
+cd ..
+rm -rf yay
+```
+
+> Explanation of this command:
+
+- `rm`: Remove files or directories.
+- `-r`: Recursively delete the directory and all its contents.
+- `-f`: Force the deletion, ignoring errors or prompts.
+
+Once `doctl` is installed, you’ll need to authenticate it with your DigitalOcean account. Generate a personal access `token` on [DigitalOcean](https://docs.digitalocean.com/reference/api/create-personal-access-token/) here.
+
+Next step, we can log into doctl via this command:
+
+```
+doctl auth init
+```
+
+> Enter the `token` when prompted.
+
+## Step 6: Create a new Arch Linux droplet via `doctl`
