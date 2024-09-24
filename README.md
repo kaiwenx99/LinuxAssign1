@@ -5,8 +5,7 @@
 - Create **SSH keys** on your local machine
 - Connect to the existing Arch Linux droplet
 - Install and configure `doctl` under existing droplet environment using **Pacman**
-- Create a new Arch Linux droplet with `doctl`
-- Configure the new droplet with `doctl` and `cloud-init`
+- Create a new Arch Linux droplet with `doctl` and configure it with `cloud-init`
 
 ---
 
@@ -171,7 +170,9 @@ doctl auth init
 
 > Enter the `token` when prompted.
 
-## Step 6: Create a new Arch Linux droplet via `doctl`
+## Step 6: Configure `cloud-init` for droplet creation
+
+## Step 7: Create a new Arch Linux droplet via `doctl`
 
 To create a new droplet via `doctl`, run the following command:
 
@@ -212,5 +213,3 @@ To validate if we have sucessfullt created a droplet or not, run the command bel
 ```
 doctl compute droplet list
 ```
-
-# Step 7:
