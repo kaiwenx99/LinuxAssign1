@@ -77,9 +77,11 @@ In this page, the configuration details are listed below:
 
 ## Step 4: Connect to existing Arch droplet via SSH
 
-The existing droplet we will connect to was created during ACIT 2420 week 2 lecture, named **bcit2420-server**(SFO3/1GB/25GB Disk) with IP address `147.182.207.200`.
+From step 3 we have created an Arch Linux droplet, named **Assignment1**(SFO3/1GB/25GB Disk) with IP address `147.182.207.200`.
 
-To connect to **bcit2420-server** via the SSH key we just added to DigitalOcean, run the following command:
+![DigitalOcean droplets](assets/DigitalOcean_droplets.png)
+
+To connect to **Assignment1** via the SSH key we just added to DigitalOcean, run the following command:
 
 ```
 ssh -i .ssh/assign1 arch@147.182.207.200
@@ -90,6 +92,9 @@ ssh -i .ssh/assign1 arch@147.182.207.200
 - `ssh`: Initiate an SSH connection.
 - `i .ssh/assign1`: Use the private key (assign1) for authentication.
 - `arch@147.182.207.200`: Specify the username (arch) and the server's IP address `147.182.207.200`.
+
+The output will be:
+![ssh connect droplet](assets/2_connect_SSH.png)
 
 After running the command above, we have successfully connected to the Arch Linux droplet in DigitalOcean via SSH key pair.
 
