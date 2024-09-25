@@ -140,7 +140,7 @@ sudo pacman -S --needed base-devel git
 The output will be:
 ![install packages](assets/5_install_packages.png)
 
-Then we are going to install an AUR helper like `yay` using git clone:
+AUR contains many packages that are not in official repositories, therefore we need an AUR helper to manage these packages conveniently. Here, we'll use one of the most popular AUR helpers, `yay` via git clone:
 
 ```
 git clone https://aur.archlinux.org/yay.git
@@ -199,7 +199,6 @@ To create and open the file using Neovim, run the command below:
 
 ```
 nvim user-data.yaml
-
 ```
 
 > Explanation of this command:
@@ -254,7 +253,6 @@ packages:
   - git
 
 disable_root: true
-
 ```
 
 Then we press `ESC`, type `:wq`, and hit `Enter` to save the changes.
