@@ -79,7 +79,7 @@ In this page, the configuration details are listed below:
 
 From step 3 we have created an Arch Linux droplet, named **Assignment1**(SFO3/1GB/25GB Disk) with IP address `147.182.207.200`.
 
-![DigitalOcean droplets](assets/DigitalOcean_droplets.png)
+![DigitalOcean droplets](assets/2_DigitalOcean_droplets.png)
 
 To connect to **Assignment1** via the SSH key we just added to DigitalOcean, run the following command:
 
@@ -94,7 +94,7 @@ ssh -i .ssh/assign1 arch@147.182.207.200
 - `arch@147.182.207.200`: Specify the username (arch) and the server's IP address `147.182.207.200`.
 
 The output will be:
-![ssh connect droplet](assets/2_connect_SSH.png)
+![ssh connect droplet](assets/3_connect_SSH.png)
 
 After running the command above, we have successfully connected to the Arch Linux droplet in DigitalOcean via SSH key pair.
 
@@ -118,6 +118,9 @@ sudo pacman -Syu
 - y: Refresh the package databases.
 - u: Update all out-of-date packages installed on the system.
 
+The output will be:
+![update pacman](assets/4_update_pacman.png)
+
 Now we have `pacman` available for Arch Linux package management, we are going to use **Arch User Repository (AUR)** to install `doctl`.
 
 We will run this command below to include necessary tools to build packages from the AUR:
@@ -133,6 +136,9 @@ sudo pacman -S --needed base-devel git
 - `--needed`: Skip reinstallation of already installed packages.
 - `base-devel`: A group of essential development tools.
 - `git`: Version control tool for cloning and managing code.
+
+The output will be:
+![install packages](assets/5_install_packages.png)
 
 Then we are going to install an AUR helper like `yay` using git clone:
 
@@ -152,6 +158,9 @@ makepkg -si
 - `makepkg`: Build a package from a PKGBUILD script.
 - `-s`: Install missing dependencies.
 - `-i`: Install the built package.
+
+The output will be:
+![install makepkg](assets/6_install_makepkg.png)
 
 (Optional) After installation, you can remove the `yay` directory:
 
@@ -175,6 +184,8 @@ doctl auth init
 ```
 
 > Enter the `token` when prompted.
+> The validation prompt will be:
+> ![validate token](assets/7_validate_token.png)
 
 ## Step 6: Configure `cloud-init` using yaml file for droplet creation
 
@@ -287,8 +298,14 @@ doctl compute droplet create \
     --user-data-file user-data.yaml
 ```
 
+The output will be:
+![create droplet](assets/8_create_droplet.png)
+
 To validate if we have sucessfullt created a droplet or not, run the command below to display a list of all active droplets in your DigitalOcean account:
 
 ```
 doctl compute droplet list
 ```
+
+The output will be:
+![list all droplets](assets/9_list_all_droplets.png)
