@@ -13,8 +13,6 @@ Before starting, make sure you have
 
 - Registered a [DigitalOcean](https://www.digitalocean.com/) account.
 - `ssh-keygen` installed on your local machine.
-- An **existing droplet** running in your DigitalOcean project.
-- Went through **week2 ACIT2420 lecture** to create and connect to this droplet running Arch Linux.
 
 ## Step 1: Create SSH key pair on your local machine
 
@@ -23,6 +21,9 @@ To create an SSH key pair, open your terminal and run the command below:
 ```
 ssh-keygen -t ed25519 -f ~/.ssh/assign1 -C "your email address"
 ```
+
+The output will be:
+![ssh key generated](assets/1_key-gen.png)
 
 > Explanation of this command:
 
@@ -217,7 +218,7 @@ disable_root: true
 - `sudo: ['ALL=(ALL) NOPASSWD:ALL']`: Allow user to run with root priviledges without password.
 - `groups: sudo `: Add user to the sudo group.
 - `ssh-authorized-keys:
-    - ssh-rsa YOUR_SSH_PUBLIC_KEY_HERE`: Replace with your actual public SSH key.
+  - ssh-rsa YOUR_SSH_PUBLIC_KEY_HERE`: Replace with your actual public SSH key.
 - `packages: - package1 `: Replace with the packages you want to install.
 - `disable_root: true`: Disable root login via SSH.
 
