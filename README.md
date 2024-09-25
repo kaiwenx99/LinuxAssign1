@@ -170,9 +170,79 @@ doctl auth init
 
 > Enter the `token` when prompted.
 
-## Step 6: Configure `cloud-init` for droplet creation
+## Step 6: Configure `cloud-init` using yaml file for droplet creation
 
-## Step 7: Create a new Arch Linux droplet via `doctl`
+Firstly, make sure you are connected to the arch linux droplet via this command:
+
+```
+ssh -i .ssh/assign1 arch@147.182.207.200
+```
+
+To create and open the file using Neovim, run the command below:
+
+```
+nvim user-data.yaml
+
+```
+
+> Explanation of this command:
+
+- `nvim`: Launch text editor Neovim.
+- `user-data.yaml`: The name of the file you want to open and create.
+
+Once you enter Neovim, press `i` on you keyboard to enter insert mode.
+
+Copy and paste the following YAML configuration into Neovim:
+
+```
+users:
+  - name: newuser
+    gecos: New User
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    groups: sudo
+    ssh-authorized-keys:
+      - ssh-rsa YOUR_SSH_PUBLIC_KEY_HERE
+
+packages:
+  - package1
+  - package2
+
+disable_root: true
+```
+
+> Explanation of this command:
+
+- `name: newuser `: Replace 'newuser' with preferred username.
+- `gecos: New User `: Replace 'New User' with full name of the user.
+- `sudo: ['ALL=(ALL) NOPASSWD:ALL']`: Allow user to run with root priviledges without password.
+- `groups: sudo `: Add user to the sudo group.
+- `ssh-authorized-keys:
+    - ssh-rsa YOUR_SSH_PUBLIC_KEY_HERE`: Replace with your actual public SSH key.
+- `packages: - package1 `: Replace with the packages you want to install.
+- `disable_root: true`: Disable root login via SSH.
+
+After replacement, we will run the command below:
+
+```
+users:
+  - name: kaiwen
+    gecos: Kaiwen Xiao
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    groups: sudo
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQ...
+
+packages:
+  - nvim
+  - git
+
+disable_root: true
+
+```
+
+Then we press `ESC`, type `:wq`, and hit `Enter` to save the changes.
+
+## Step 7: Create a new Arch Linux droplet via `doctl` with `cloud-init` user-data configuration
 
 To create a new droplet via `doctl`, run the following command:
 
@@ -183,7 +253,8 @@ doctl compute droplet create \
     --image <image ID> \
     --region <region and datacenter> \
     --ssh-keys <ssh key ID> \
-    --enable-backups
+    --enable-backups \
+    --user-data-file user-data.yaml
 ```
 
 > Explanation of this command:
@@ -195,6 +266,7 @@ doctl compute droplet create \
 - `    --region <region and datacenter> \`: Region for the droplet, we are using `sfo3` which is the closest to Vancouver.
 - `    --ssh-keys <ssh key ID> \`: The ID of the SSH key for secure access.
 - `    --enable-backups`: Enable automatic backups for the droplet.
+- `    --user-data-file user-data.yaml`: Specify the cloud-init configuration file to execute during droplet creation.
 
 Therefore the command we are going to run is:
 
@@ -205,7 +277,8 @@ doctl compute droplet create \
     --image 165064181 \
     --region sfo3 \
     --ssh-keys 43471790 \
-    --enable-backups
+    --enable-backups \
+    --user-data-file user-data.yaml
 ```
 
 To validate if we have sucessfullt created a droplet or not, run the command below to display a list of all active droplets in your DigitalOcean account:
