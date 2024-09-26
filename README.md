@@ -15,8 +15,9 @@ Before starting, make sure you have
 
 - Registered a [DigitalOcean](https://www.digitalocean.com/) account.
 - `ssh-keygen` installed on your local machine.
+- A basic understanding of SSH and terminal commands.
 
-## Step 1: Create SSH key pair on your local machine
+## Step 1: Generate an SSH key pair on your local machine
 
 To create an SSH key pair, open your terminal and run the command below:
 
@@ -24,7 +25,7 @@ To create an SSH key pair, open your terminal and run the command below:
 ssh-keygen -t ed25519 -f ~/.ssh/assign1 -C "your email address"
 ```
 
-The output will be:
+This will output:
 ![ssh key generated](assets/1_key-gen.png)
 
 > Explanation of this command:
@@ -34,18 +35,18 @@ The output will be:
 - `-f ~/.ssh/assign1`: Save the key pair as `assign1` in `~/.ssh/`.
 - `-C "your email address"`: Add a comment (usually your email or identifier), replace this placeholder with your own email.
 
-The command above creates a key pair in your `.ssh` directory:
+This command creates 2 files or say an **SSH key pair** in your `.ssh` directory:
 
 - Private key: `assign1`.
 - Public key: `assign1.pub`.
 
 > The reason why we created this SSH key pair:
 >
-> - Secure Access: Allowing safe connection to the droplet.
-> - Automation: Allowing `doctl` and `cloud-init` to automate tasks without passwords.
-> - DigitalOcean Requirements: SSH keys are recommended for secure droplet creation.
+> - Secure Access: Allowing safe connection to your DigitalOcean droplet without password.
+> - Automation: Allowing `doctl` and `cloud-init` to automate tasks without password.
+> - DigitalOcean Requirements: SSH keys are recommended for secure droplet management.
 
-## Step 2: Add SSH key pair to your DigitalOcean account
+## Step 2: Add SSH key to your DigitalOcean account
 
 In your DigitalOcean account, go to **Control Panel**.  
 In Control Panel, click **Settings** at the bottom of the left sidebar.  
@@ -64,7 +65,7 @@ pbcopy < ~/.ssh/assign1.pub
 
 Then paste to DigitalOcean from clipboard to add SSH key pair.
 
-## Step 3: Create an Arch droplet using the SSH key pair
+## Step 3: Deploy an Arch Linux droplet on DigitalOcean using SSH key
 
 Under **Control Panel**, click the green button **Create** at the top, then select **Droplets** in dropdown menu.
 
@@ -77,7 +78,7 @@ In this page, the configuration details are listed below:
 > 5. Choose Authentication Method -> SSH Key: choose the key `Assign1` which we just created
 > 6. Click **Create Droplet** at the bottom right
 
-## Step 4: Connect to existing Arch droplet via SSH
+## Step 4: Connect to the Arch Linux droplet via SSH
 
 From step 3 we have created an Arch Linux droplet, named **Assignment1**(SFO3/1GB/25GB Disk) with IP address `147.182.207.200`.
 
@@ -100,7 +101,7 @@ The output will be:
 
 After running the command above, we have successfully connected to the Arch Linux droplet in DigitalOcean via SSH key pair.
 
-## Step 5: Install and configure `doctl` under existing droplet environment using Pacman
+## Step 5: Install and configure `doctl` on the Arch Linux droplet using Pacman
 
 Firstly, make sure you are connected to the arch linux droplet via this command:
 
@@ -189,7 +190,7 @@ doctl auth init
 > The validation prompt will be:
 > ![validate token](assets/7_validate_token.png)
 
-## Step 6: Configure `cloud-init` using yaml file for droplet creation
+## Step 6: Create a `cloud-init` configuration yaml file for automated droplet Setup
 
 Firstly, make sure you are connected to the arch linux droplet via this command:
 
@@ -259,7 +260,7 @@ disable_root: true
 
 Then we press `ESC`, type `:wq`, and hit `Enter` to save the changes.
 
-## Step 7: Create a new Arch Linux droplet via `doctl` with `cloud-init` user-data configuration
+## Step 7: Automate droplet creation using `doctl` and `cloud-init` to create a new Arch Linux droplet
 
 To create a new droplet via `doctl`, run the following command:
 
