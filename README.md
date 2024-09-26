@@ -68,16 +68,22 @@ Once copied, paste the public key into the SSH Key field in DigitalOcean and cli
 
 ## Step 3: Deploy an Arch Linux droplet on DigitalOcean using SSH key
 
-Under **Control Panel**, click the green button **Create** at the top, then select **Droplets** in dropdown menu.
+In your DigitalOcean **Control Panel**, click the green **Create** button at the top.
+From the dropdown, select **Droplets** to create a new droplet.
 
-In this page, the configuration details are listed below:
+On this page, fill in the following configuration details:
 
-> 1. Choose Region: `San Francisco`
-> 2. Datacenter: `SFO3`
-> 3. Choose an image -> Custome Image: `Arch-Linux-x86_64-cloudimg-20240901.259602.qcow2`
-> 4. Choose Size -> SHARED CPU: `Basic` -> CPU Options: `Premium AMD` -> `$7/mo`
-> 5. Choose Authentication Method -> SSH Key: choose the key `Assign1` which we just created
-> 6. Click **Create Droplet** at the bottom right
+> 1. Choose **Region**: `San Francisco`
+> 2. **Datacenter**: `SFO3`
+> 3. Choose an **image** -> **Custome Image**: [Arch-Linux-x86_64-cloudimg-20240901.259602.qcow2](https://gitlab.archlinux.org/archlinux/arch-boxes/-/packages/1528)
+> 4. Choose **Size** -> SHARED CPU: `Basic` -> CPU Options: `Premium AMD` -> `$7/mo`
+> 5. Choose **Authentication Method** -> SSH Key: choose the key `Assign1` which we just created
+> 6. Click **Create Droplet** at the bottom right once all details are filled
+
+> Why configure these options?
+>
+> - Region & Datacenter: Selecte a region closer to your geological location ensures lower latency and better performance.
+> - QCOW2 Image: Saves storage, supports snapshots, and is optimized for cloud environments with compression and dynamic allocation.
 
 ## Step 4: Connect to the Arch Linux droplet via SSH
 
