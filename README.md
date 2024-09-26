@@ -206,7 +206,7 @@ Firstly, make sure you are connected to the arch linux droplet via this command:
 ssh -i .ssh/assign1 arch@147.182.207.200
 ```
 
-To create and open the file using Neovim, run the command below:
+To create and open a yaml file using Neovim, run:
 
 ```
 nvim user-data.yaml
@@ -214,10 +214,10 @@ nvim user-data.yaml
 
 > Explanation of this command:
 
-- `nvim`: Launch text editor Neovim.
+- `nvim`: Launch the Neovim text editor.
 - `user-data.yaml`: The name of the file you want to open and create.
 
-Once you enter Neovim, press `i` on you keyboard to enter insert mode.
+Once inside Neovim, press `i` on you keyboard to enter insert mode.
 
 Copy and paste the following YAML configuration into Neovim:
 
@@ -266,7 +266,7 @@ packages:
 disable_root: true
 ```
 
-Then we press `ESC`, type `:wq`, and hit `Enter` to save the changes.
+Then press `ESC`, type `:wq`, and hit `Enter` to save changes and exit Neovim.
 
 ## Step 7: Automate droplet creation using `doctl` and `cloud-init` to create a new Arch Linux droplet
 
@@ -310,7 +310,7 @@ doctl compute droplet create \
 The output will be:
 ![create droplet](assets/8_create_droplet.png)
 
-To validate if we have sucessfullt created a droplet or not, run the command below to display a list of all active droplets in your DigitalOcean account:
+To validate if the droplet has been sucessfully created, run the command below to display a list of all active droplets in your DigitalOcean account:
 
 ```
 doctl compute droplet list
