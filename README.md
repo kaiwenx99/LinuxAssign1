@@ -2,10 +2,12 @@
 
 ## Guide Objectives
 
-- Create **SSH keys** on your local machine
-- Connect to the existing Arch Linux droplet
-- Install and configure `doctl` under existing droplet environment using **Pacman**
-- Create a new Arch Linux droplet with `doctl` and configure it with `cloud-init`
+- Create an **SSH key pair** on your local machine
+- Deploy an Arch Linux droplet on DigitalOcean
+- Connect to the Arch droplet using SSH securely
+- Install and configure `doctl` on the Arch droplet using **Pacman**
+- Automate the creation of a new droplet with `cloud-init` and `doctl`
+- Verify and manage your DigitalOcean droplets using `doctl`
 
 ---
 
