@@ -22,7 +22,13 @@ Before starting, make sure you have
 To create an SSH key pair, open your terminal and run the command below:
 
 ```
+# For Linux/Mac:
 ssh-keygen -t ed25519 -f ~/.ssh/assign1 -C "your email address"
+```
+
+```
+# For Windows:
+ssh-keygen -t ed25519 -f $HOME\.ssh\assign1 -C "your email address"
 ```
 
 This will output:
@@ -56,7 +62,13 @@ This command creates 2 files or say an **SSH key pair** in your `.ssh` directory
 To copy and add your public SSH key to your DigitalOcean account, run this command in terminal:
 
 ```
+# For Linux/Mac:
 pbcopy < ~/.ssh/assign1.pub
+```
+
+```
+# For Windows:
+Get-Content $HOME\.ssh\assign1.pub | Set-Clipboard
 ```
 
 > Explanation of this command:
@@ -94,7 +106,13 @@ From step 3 you have created an Arch Linux droplet named **Assignment1**(SFO3/1G
 To connect to **Assignment1** via the SSH key you added to DigitalOcean earlier, run the following command:
 
 ```
+# For Linux/Mac:
 ssh -i .ssh/assign1 arch@147.182.207.200
+```
+
+```
+# For Windows:
+ssh -i $HOME\.ssh\assign1 arch@147.182.207.200
 ```
 
 > Explanation of this command:
@@ -113,7 +131,13 @@ After running the command above, you have successfully connected to the Arch Lin
 First, make sure you are connected to the Arch Linux droplet with the following command:
 
 ```
+# For Linux/Mac:
 ssh -i .ssh/assign1 arch@147.182.207.200
+```
+
+```
+# For Windows:
+ssh -i $HOME\.ssh\assign1 arch@147.182.207.200
 ```
 
 To install `doctl`, update your system and package database to ensure compatibility with the latest version:
@@ -177,7 +201,13 @@ The output will be:
 
 ```
 cd ..
+# For Linux/Mac:
 rm -rf yay
+```
+
+```
+# For Windows::
+Remove-Item -Recurse -Force yay
 ```
 
 > Explanation of this command:
