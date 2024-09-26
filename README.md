@@ -73,12 +73,12 @@ From the dropdown, select **Droplets** to create a new droplet.
 
 On this page, fill in the following configuration details:
 
-> 1. Choose **Region**: `San Francisco`
-> 2. **Datacenter**: `SFO3`
-> 3. Choose an **image** -> **Custome Image**: [Arch-Linux-x86_64-cloudimg-20240901.259602.qcow2](https://gitlab.archlinux.org/archlinux/arch-boxes/-/packages/1528)
-> 4. Choose **Size** -> SHARED CPU: `Basic` -> CPU Options: `Premium AMD` -> `$7/mo`
-> 5. Choose **Authentication Method** -> SSH Key: choose the key `Assign1` which we just created
-> 6. Click **Create Droplet** at the bottom right once all details are filled
+1. Choose **Region**: `San Francisco`
+2. **Datacenter**: `SFO3`
+3. Choose an **image** -> **Custome Image**: [Arch-Linux-x86_64-cloudimg-20240901.259602.qcow2](https://gitlab.archlinux.org/archlinux/arch-boxes/-/packages/1528)
+4. Choose **Size** -> SHARED CPU: `Basic` -> CPU Options: `Premium AMD` -> `$7/mo`
+5. Choose **Authentication Method** -> SSH Key: choose the key `Assign1` which we just created
+6. Click **Create Droplet** at the bottom right once all details are filled
 
 > Why configure these options?
 >
