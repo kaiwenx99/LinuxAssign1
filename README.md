@@ -48,11 +48,12 @@ This command creates 2 files or say an **SSH key pair** in your `.ssh` directory
 
 ## Step 2: Add SSH key to your DigitalOcean account
 
-In your DigitalOcean account, go to **Control Panel**.  
-In Control Panel, click **Settings** at the bottom of the left sidebar.  
-In Settings, click **Security**. Then click **Add SSH Key**.
+1. In your DigitalOcean account, go to **Control Panel**.
+2. In Control Panel, click **Settings** at the bottom of the left sidebar.
+3. In Settings, click **Security**.
+4. Then click **Add SSH Key**.
 
-To gain Public Key, run this command in terminal:
+To copy and add your public SSH key to your DigitalOcean account, run this command in terminal:
 
 ```
 pbcopy < ~/.ssh/assign1.pub
@@ -63,7 +64,7 @@ pbcopy < ~/.ssh/assign1.pub
 - `pbcopy`: Copy text to clipboard.
 - `< ~/.ssh/assign1.pub`: Redirect the contents of assign1.pub into `pbcopy`.
 
-Then paste to DigitalOcean from clipboard to add SSH key pair.
+Once copied, paste the public key into the SSH Key field in DigitalOcean and click **Add**.
 
 ## Step 3: Deploy an Arch Linux droplet on DigitalOcean using SSH key
 
