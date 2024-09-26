@@ -87,11 +87,11 @@ On this page, fill in the following configuration details:
 
 ## Step 4: Connect to the Arch Linux droplet via SSH
 
-From step 3 we have created an Arch Linux droplet, named **Assignment1**(SFO3/1GB/25GB Disk) with IP address `147.182.207.200`.
+From step 3 you have created an Arch Linux droplet named **Assignment1**(SFO3/1GB/25GB Disk) with the IP address `147.182.207.200`.
 
 ![DigitalOcean droplets](assets/2_DigitalOcean_droplets.png)
 
-To connect to **Assignment1** via the SSH key we just added to DigitalOcean, run the following command:
+To connect to **Assignment1** via the SSH key you added to DigitalOcean earlier, run the following command:
 
 ```
 ssh -i .ssh/assign1 arch@147.182.207.200
@@ -103,10 +103,10 @@ ssh -i .ssh/assign1 arch@147.182.207.200
 - `i .ssh/assign1`: Use the private key (assign1) for authentication.
 - `arch@147.182.207.200`: Specify the username (arch) and the server's IP address `147.182.207.200`.
 
-The output will be:
+This will output:
 ![ssh connect droplet](assets/3_connect_SSH.png)
 
-After running the command above, we have successfully connected to the Arch Linux droplet in DigitalOcean via SSH key pair.
+After running the command above, you have successfully connected to the Arch Linux droplet via SSH key.
 
 ## Step 5: Install and configure `doctl` on the Arch Linux droplet using Pacman
 
