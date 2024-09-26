@@ -77,7 +77,7 @@ On this page, fill in the following configuration details:
 2. **Datacenter**: `SFO3`
 3. Choose an **image** -> **Custome Image**: [Arch-Linux-x86_64-cloudimg-20240901.259602.qcow2](https://gitlab.archlinux.org/archlinux/arch-boxes/-/packages/1528)
 4. Choose **Size** -> SHARED CPU: `Basic` -> CPU Options: `Premium AMD` -> `$7/mo`
-5. Choose **Authentication Method** -> SSH Key: choose the key `Assign1` which we just created
+5. Choose **Authentication Method** -> SSH Key: choose the key `Assign1` which you just created
 6. Click **Create Droplet** at the bottom right once all details are filled
 
 > Why configure these options?
@@ -110,13 +110,13 @@ After running the command above, you have successfully connected to the Arch Lin
 
 ## Step 5: Install and configure `doctl` on the Arch Linux droplet using Pacman
 
-Firstly, make sure you are connected to the arch linux droplet via this command:
+First, make sure you are connected to the Arch Linux droplet with the following command:
 
 ```
 ssh -i .ssh/assign1 arch@147.182.207.200
 ```
 
-To install `doctl`, we have to make sure the system is fully updated including the pacakage database. By running the command below, we have the latest `doctl` version available without compatibility issues:
+To install `doctl`, update your system and package database to ensure compatibility with the latest version:
 
 ```
 sudo pacman -Syu
@@ -133,7 +133,7 @@ The output will be:
 
 Now we have `pacman` available for Arch Linux package management, we are going to use **Arch User Repository (AUR)** to install `doctl`.
 
-We will run this command below to include necessary tools to build packages from the AUR:
+Next, install the essential tools to build packages from AUR:
 
 ```
 sudo pacman -S --needed base-devel git
@@ -150,13 +150,14 @@ sudo pacman -S --needed base-devel git
 The output will be:
 ![install packages](assets/5_install_packages.png)
 
-AUR contains many packages that are not in official repositories, therefore we need an AUR helper to manage these packages conveniently. Here, we'll use one of the most popular AUR helpers, `yay` via git clone:
+AUR contains many packages that are not in official repositories, therefore we need an AUR helper to manage these packages conveniently.  
+Here, we'll use one of the most popular AUR helpers, `yay` via git clone:
 
 ```
 git clone https://aur.archlinux.org/yay.git
 ```
 
-Then we navigate in to `yay` directory and install it:
+Then we navigate into `yay` directory and install it:
 
 ```
 cd yay
@@ -185,9 +186,9 @@ rm -rf yay
 - `-r`: Recursively delete the directory and all its contents.
 - `-f`: Force the deletion, ignoring errors or prompts.
 
-Once `doctl` is installed, you’ll need to authenticate it with your DigitalOcean account. Generate a personal access `token` on [DigitalOcean](https://docs.digitalocean.com/reference/api/create-personal-access-token/) here.
+Once `doctl` is installed, **authenticate** it with your DigitalOcean account. Generate a personal access `token` on [DigitalOcean](https://docs.digitalocean.com/reference/api/create-personal-access-token/) here.
 
-Next step, we can log into doctl via this command:
+Finally, log into `doctl` with the following command:
 
 ```
 doctl auth init
