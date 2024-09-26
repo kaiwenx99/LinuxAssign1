@@ -318,3 +318,9 @@ doctl compute droplet list
 
 The output will be:
 ![list all droplets](assets/9_list_all_droplets.png)
+
+---
+
+## Conclusion
+
+In this guide, you learned how to set up an Arch Linux droplet on DigitalOcean. You started by creating an SSH key pair to secure your connection, then you deployed the droplet and connected to it. After that, you installed and configured `doctl`, a command-line tool for managing your DigitalOcean resources. You also created a `cloud-init` configuration file to automate user setup and package installation. Finally, you used `doctl` and `cloud-init` to create a new droplet.
