@@ -354,3 +354,47 @@ The output will be:
 ## Conclusion
 
 In this guide, you learned how to set up an Arch Linux droplet on DigitalOcean. You started by creating an SSH key pair to secure your connection, then you deployed the droplet and connected to it. After that, you installed and configured `doctl`, a command-line tool for managing your DigitalOcean resources. You also created a `cloud-init` configuration file to automate user setup and package installation. Finally, you used `doctl` and `cloud-init` to create a new droplet.
+
+---
+
+## References
+
+> 1.  **DigitalOcean** Documentation
+>
+> - Official guides and resources from DigitalOcean on setting up droplets, managing SSH keys, and using doctl. Everything we need can be found under Most Viewed Product Docs.
+> - Link: [DigitalOcean Docs](https://docs.digitalocean.com/)
+>
+> 2.  SSH Key Generation Guide
+>
+> - A comprehensive tutorial on generating and managing SSH keys on various operating systems.
+> - Link: [SSH Key Generation](https://docs.digitalocean.com/products/droplets/how-to/add-ssh-keys/create-with-openssh/)
+>
+> 3. Arch Linux **Pacman** Package Management
+>
+> - Detailed information on using Pacman for package management in Arch Linux, including installation and updates.
+> - Link: [Pacman](https://wiki.archlinux.org/title/Pacman)
+>
+> 4. **Doctl** Command-Line Tool
+>
+> - Overview and installation instructions for doctl, the DigitalOcean command-line interface.
+> - Link: [Doctl DigitalOcean](https://docs.digitalocean.com/reference/doctl/how-to/install/)
+>
+> 5. **Cloud-Init** Documentation
+>
+> - Information on using cloud-init for automating cloud instance setup, including configuration file formats.
+> - Link: [Cloud-Init](https://cloudinit.readthedocs.io/en/latest/reference/examples.html)
+>
+> 6. Creating and Managing Droplets on DigitalOcean
+>
+> - A step-by-step guide for creating and managing droplets within the DigitalOcean platform.
+> - Link: [Creating Droplets](https://docs.digitalocean.com/products/droplets/how-to/create/)
+>
+> 7. Using **Neovim** for Configuration Files
+>
+> - An introduction to using Neovim for editing configuration files and basic commands.
+> - Link: [Neovim](https://neovim.io/doc/)
+>
+> 8. Week 2 class note which is credited to ACIT 2420 instructor Nathan McNinch
+>
+> - A comprehensive guide focusing on creating SSH keys, uploading images, and managing droplets on DigitalOcean, along with using Vim for file editing.
+> - Link: [Class Note Week 2](https://gitlab.com/cit2420/2420-notes-f24/-/blob/main/2420-notes/week-two.md?ref_type=heads)
